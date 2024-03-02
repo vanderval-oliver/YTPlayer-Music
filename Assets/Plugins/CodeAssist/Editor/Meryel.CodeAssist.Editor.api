@@ -1,0 +1,375 @@
+// This file is generated. Do not modify by hand.
+// XML documentation file not found. To check if public methods have XML comments,
+// make sure the XML doc file is present and located next to the scraped dll
+namespace Meryel.UnityCodeAssist.Editor
+{
+    public class AboutWindow : UnityEditor.EditorWindow
+    {
+        public AboutWindow() {}
+        public static void Display();
+    }
+
+    public class Assister
+    {
+        public const string Title = @"Code Assist Lite";
+        public const string Version = @"1.1.11";
+        public Assister() {}
+        public static void SendTagsAndLayers();
+    }
+
+    public static class CommonTools
+    {
+        public static int GetHashOfPath(string path);
+        public static string GetInputManagerFilePath();
+        public static string GetProjectPath();
+        public static string GetTagManagerFilePath();
+    }
+
+    public class FeedbackWindow : UnityEditor.EditorWindow
+    {
+        public FeedbackWindow() {}
+        public static void Display();
+    }
+
+    [UnityEditor.InitializeOnLoad] public static class MainThreadDispatcher
+    {
+        public static void Add(System.Action action);
+    }
+
+    [UnityEditor.InitializeOnLoad] public static class Monitor
+    {
+        public static void LazyLoad(string category);
+        public static void SetDirty(UnityEngine.GameObject go);
+        public static void SetDirty(UnityEngine.Object obj);
+    }
+
+    [UnityEditor.InitializeOnLoad] public static class NetMQInitializer
+    {
+        public static NetMQPublisher Publisher;
+        public static void Initialize();
+    }
+
+    public class NetMQPublisher : Meryel.UnityCodeAssist.Synchronizer.Model.IProcessor
+    {
+        public System.Collections.Generic.List<Meryel.UnityCodeAssist.Synchronizer.Model.Connect> clients;
+        public NetMQPublisher() {}
+        public void Clear();
+        public static void LogContext();
+        public void SendAnalyticsEvent(string type, string content);
+        public void SendConnect();
+        public void SendConnectionInfo();
+        public void SendDisconnect();
+        public void SendEditorPrefs(string[] editorPrefKeys, string[] editorPrefValues, string[] editorPrefStringKeys, string[] editorPrefIntegerKeys, string[] editorPrefFloatKeys, string[] editorPrefBooleanKeys);
+        public void SendErrorReport(string errorMessage, string stack, string type);
+        public void SendGameObject(UnityEngine.GameObject go);
+        public void SendHandshake();
+        public void SendInputManager(string[] axisNames, string[] axisInfos, string[] buttonKeys, string[] buttonAxis, string[] joystickNames);
+        public void SendInternalLog();
+        public void SendLayers(string[] layerIndices, string[] layerNames);
+        public void SendPlayerPrefs(string[] playerPrefKeys, string[] playerPrefValues, string[] playerPrefStringKeys, string[] playerPrefIntegerKeys, string[] playerPrefFloatKeys);
+        public void SendRequestInternalLog();
+        public void SendRequestVerboseType(string type, string docPath);
+        public void SendScriptableObject(UnityEngine.ScriptableObject so);
+        public void SendScriptMissing(string component);
+        public void SendSortingLayers(string[] sortingLayers, string[] sortingLayerIds, string[] sortingLayerValues);
+        public void SendTags(string[] tags);
+    }
+
+    public class ScriptFinder
+    {
+        public ScriptFinder() {}
+        public static void DENEMEEEE();
+        public static bool FindInstanceOfType(string typeName, string docPath, out UnityEngine.GameObject gameObjectInstanceOfType, out UnityEngine.ScriptableObject scriptableObjectInstanceOfType);
+        public static bool GetActiveGameObject(out UnityEngine.GameObject activeGameObject);
+    }
+
+    public class StatusWindow : UnityEditor.EditorWindow
+    {
+        public StatusWindow() {}
+        public static void Display();
+    }
+}
+
+namespace Meryel.UnityCodeAssist.Editor.EditorCoroutines
+{
+    public class EditorCoroutine
+    {
+    }
+
+    public static class EditorCoroutineUtility
+    {
+        public static EditorCoroutine StartCoroutine(System.Collections.IEnumerator routine, object owner);
+        public static EditorCoroutine StartCoroutineOwnerless(System.Collections.IEnumerator routine);
+        public static void StopCoroutine(EditorCoroutine coroutine);
+    }
+
+    public class EditorWaitForSeconds
+    {
+        public float WaitTime { get; }
+        public EditorWaitForSeconds(float time) {}
+    }
+
+    public static class EditorWindowCoroutineExtension
+    {
+        public static EditorCoroutine StartCoroutine(this UnityEditor.EditorWindow window, System.Collections.IEnumerator routine);
+        public static void StopCoroutine(this UnityEditor.EditorWindow window, EditorCoroutine coroutine);
+    }
+}
+
+namespace Meryel.UnityCodeAssist.Editor.Input
+{
+    public enum AxisType
+    {
+        JoystickAxis = 2,
+        KeyOrMouseButton = 0,
+        MouseMovement = 1,
+    }
+
+    public class Binary2TextExec : EditorToolExec
+    {
+        public Binary2TextExec() {}
+        public int Exec(string filePath, string outPath, string options);
+        public int Exec(string filePath, string outPath, bool detailed = false, bool largeBinaryHashOnly = false, bool hexFloat = false);
+    }
+
+    public class Class13Mapper
+    {
+        public InputManagerMapper InputManager { get; set; }
+        public Class13Mapper() {}
+    }
+
+    public class EditorToolExec
+    {
+        protected string mEditorPath;
+        protected string mExecFname;
+        protected string mExecFullPath;
+        protected string mToolsPath;
+        public string Output { get; }
+        public EditorToolExec(string mExecFname) {}
+        public int Exec(string arg);
+    }
+
+    public static class Extensions
+    {
+        public static string GetInfo(this System.Collections.Generic.List<InputAxis> axes, string name);
+        public static bool TryPeek<T>(this System.Collections.Generic.Stack<T> stack, out T result);
+    }
+
+    public class InputAxis
+    {
+        public string altNegativeButton { get; }
+        public string altPositiveButton { get; }
+        public int axis { get; }
+        public float dead { get; }
+        public string descriptiveName { get; }
+        public string descriptiveNegativeName { get; }
+        public float gravity { get; }
+        public bool invert { get; }
+        public int joyNum { get; }
+        public string Name { get; }
+        public string negativeButton { get; }
+        public string positiveButton { get; }
+        public float sensitivity { get; }
+        public int SerializedVersion { get; set; }
+        public bool snap { get; }
+        public AxisType type { get; }
+        public InputAxis(InputAxisMapper map) {}
+    }
+
+    public class InputAxisMapper
+    {
+        public string altNegativeButton { get; set; }
+        public string altPositiveButton { get; set; }
+        public int axis { get; set; }
+        public string dead { get; set; }
+        public string descriptiveName { get; set; }
+        public string descriptiveNegativeName { get; set; }
+        public string gravity { get; set; }
+        public int invert { get; set; }
+        public int joyNum { get; set; }
+        public string m_Name { get; set; }
+        public string negativeButton { get; set; }
+        public string positiveButton { get; set; }
+        public string sensitivity { get; set; }
+        public int serializedVersion { get; set; }
+        public int snap { get; set; }
+        public int type { get; set; }
+        public InputAxisMapper() {}
+    }
+
+    public class InputManager
+    {
+        public System.Collections.Generic.List<InputAxis> Axes { get; }
+        public int ObjectHideFlags { get; set; }
+        public int SerializedVersion { get; set; }
+        public bool UsePhysicalKeys { get; set; }
+        public InputManager(InputManagerMapper map) {}
+    }
+
+    public class InputManagerMapper
+    {
+        public System.Collections.Generic.List<InputAxisMapper> m_Axes { get; set; }
+        public int m_ObjectHideFlags { get; set; }
+        public int m_UsePhysicalKeys { get; set; }
+        public int serializedVersion { get; set; }
+        public InputManagerMapper() {}
+    }
+
+    public class InputManagerMonitor
+    {
+        public static InputManagerMonitor Instance { get; }
+        public InputManagerMonitor() {}
+        public void Bump();
+    }
+
+    public class Text2Yaml
+    {
+        public Text2Yaml() {}
+        public static string Convert(System.Collections.Generic.IEnumerable<string> textLines);
+    }
+}
+
+namespace Meryel.UnityCodeAssist.Editor.Logger
+{
+    public class DomainHashEnricher : Serilog.Core.ILogEventEnricher
+    {
+        public DomainHashEnricher() {}
+        public void Enrich(Serilog.Events.LogEvent logEvent, Serilog.Core.ILogEventPropertyFactory propertyFactory);
+    }
+
+    [UnityEditor.InitializeOnLoad] public static class ELogger
+    {
+        public static event System.Action OnVsInternalLogChanged;
+        public static string FilePath { get; }
+        public static string VSFilePath { get; }
+        public static string VsInternalLog { get; set; }
+        public static int GetErrorCountInInternalLog();
+        public static string GetInternalLogContent();
+        public static int GetWarningCountInInternalLog();
+        public static void Init(bool isFirst, string solutionDir, System.Lazy<Serilog.Core.ILogEventSink> outputWindowSink);
+        public static void OnOptionsChanged();
+    }
+
+    public class MemorySink : Serilog.Core.ILogEventSink
+    {
+        public int ErrorCount { get; }
+        public bool HasError { get; }
+        public bool HasWarning { get; }
+        public int WarningCount { get; }
+        public MemorySink(string outputTemplate) {}
+        public void Emit(Serilog.Events.LogEvent logEvent);
+        public string Export();
+    }
+
+    public class MyDestructuringPolicy : Serilog.Core.IDestructuringPolicy
+    {
+        public MyDestructuringPolicy() {}
+        public bool TryDestructure(object value, Serilog.Core.ILogEventPropertyValueFactory propertyValueFactory, out Serilog.Events.LogEventPropertyValue result);
+    }
+
+    public class UnityOutputWindowSink : Serilog.Core.ILogEventSink
+    {
+        public UnityOutputWindowSink(System.IFormatProvider formatProvider) {}
+        public void Emit(Serilog.Events.LogEvent logEvent);
+    }
+}
+
+namespace Meryel.UnityCodeAssist.Editor.Preferences
+{
+    public abstract class PreferanceStorageAccessor
+    {
+        protected string[] cachedData;
+        protected bool ignoreNextChange;
+        public System.Action PrefEntryChangedDelegate;
+        protected string prefPath;
+        public System.Action StartLoadingDelegate;
+        public System.Action StopLoadingDelegate;
+        protected PreferanceStorageAccessor(string pathToPrefs) {}
+        protected abstract void FetchKeysFromSystem();
+        public string[] GetKeys(bool reloadData = true);
+        public void IgnoreNextChange();
+        public abstract bool IsMonitoring();
+        protected virtual void OnPrefEntryChanged();
+        public abstract void StartMonitoring();
+        public abstract void StopMonitoring();
+    }
+
+    public class PreferenceEntry
+    {
+        public float m_floatValue;
+        public int m_intValue;
+        public string m_key;
+        public string m_strValue;
+        public PreferenceEntry.PrefTypes m_typeSelection;
+        public PreferenceEntry() {}
+        public string ValueAsString();
+        public enum PrefTypes
+        {
+            Float = 2,
+            Int = 1,
+            String = 0,
+        }
+    }
+
+    public class PreferenceEntryHolder : UnityEngine.ScriptableObject
+    {
+        public System.Collections.Generic.List<PreferenceEntry> unityDefList;
+        public System.Collections.Generic.List<PreferenceEntry> userDefList;
+        public PreferenceEntryHolder() {}
+        public void ClearLists();
+    }
+
+    public class PreferenceMonitor
+    {
+        public static PreferenceMonitor InstanceOfEditorPrefs { get; }
+        public static PreferenceMonitor InstanceOfPlayerPrefs { get; }
+        public void Bump();
+        protected override void Finalize();
+    }
+
+    [System.Flags] public enum RegChangeNotifyFilter
+    {
+        Attribute = 2,
+        Key = 1,
+        Security = 8,
+        Value = 4,
+    }
+
+    public class RegistryMonitor : System.IDisposable
+    {
+        public event System.IO.ErrorEventHandler Error;
+        public event System.EventHandler RegChanged;
+        public bool IsMonitoring { get; }
+        public RegChangeNotifyFilter RegChangeNotifyFilter { get; set; }
+        public RegistryMonitor(Microsoft.Win32.RegistryKey registryKey) {}
+        public RegistryMonitor(string name) {}
+        public RegistryMonitor(Microsoft.Win32.RegistryHive registryHive, string subKey) {}
+        public void Dispose();
+        protected virtual void OnError(System.Exception e);
+        protected virtual void OnRegChanged();
+        public void Start();
+        public void Stop();
+    }
+
+    public class WindowsPrefStorage : PreferanceStorageAccessor
+    {
+        public WindowsPrefStorage(string pathToPrefs) {}
+        protected override void FetchKeysFromSystem();
+        public override bool IsMonitoring();
+        public override void StartMonitoring();
+        public override void StopMonitoring();
+    }
+}
+
+namespace Meryel.UnityCodeAssist.Editor.TinyJson
+{
+    public static class JsonParser
+    {
+        public static T FromJson<T>(string json);
+    }
+
+    public static class JsonWriter
+    {
+        public static string ToJson(object item);
+    }
+}
